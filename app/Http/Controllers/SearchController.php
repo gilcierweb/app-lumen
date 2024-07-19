@@ -9,25 +9,28 @@ use Illuminate\Support\Facades\Http;
 class SearchController extends Controller
 {
     protected $results = array();
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $zipCode = $request->zip;
-        $zipCodes  = explode(",",$zipCode );
-        foreach ( $zipCodes as $zipCode) {
+        $zipCodes  = explode(",", $zipCode);
+        foreach ($zipCodes as $zipCode) {
             $code = $this->validateZipCode($zipCode);
-          
-            $this->requestViaCEP($code);          
+
+            $this->requestViaCEP($code);
         }
-    
+
         return response()->json($this->results);
     }
 
-    private function searchZipCode(string $zipCode): array {
-       $url = "https://viacep.com.br/ws/$cep/json/";
+    private function searchZipCode(string $zipCode): array
+    {
+        $url = "https://viacep.com.br/ws/$cep/json/";
 
-        return array();   
+        return array();
     }
 
-    private function validateZipCode(string $zipCode){
+    private function validateZipCode(string $zipCode)
+    {
         $formatedZipCode = $this->numberClear($zipCode);
 
         if (!preg_match('/^[0-9]{8}?$/', $formatedZipCode)) {
@@ -37,22 +40,23 @@ class SearchController extends Controller
         return $formatedZipCode;
     }
 
-    private function numberClear(string $number): ?string{
+    private function numberClear(string $number): ?string
+    {
         if ($number == null) {
             return null;
         }
 
         return preg_replace('/[^0-9]/', '', $number);
     }
-   
-        private function requestViaCEP(string $zipCode){
-   
-        $url = "https://viacep.com.br/ws/$zipCode/json/";
-     
-        $response = Http::get($url);
-      
-        $result = $response->json();
-        array_push( $this->results, $result);     
 
+    private function requestViaCEP(string $zipCode)
+    {
+
+        $url = "https://viacep.com.br/ws/$zipCode/json/";
+
+        $response = Http::get($url);
+
+        $result = $response->json();
+        array_push($this->results, $result);
     }
 }

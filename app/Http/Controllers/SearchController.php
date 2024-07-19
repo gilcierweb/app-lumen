@@ -21,14 +21,6 @@ class SearchController extends Controller
 
         return response()->json($this->results);
     }
-
-    private function searchZipCode(string $zipCode): array
-    {
-        $url = "https://viacep.com.br/ws/$cep/json/";
-
-        return array();
-    }
-
     private function validateZipCode(string $zipCode)
     {
         $formatedZipCode = $this->numberClear($zipCode);

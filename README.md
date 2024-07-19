@@ -24,3 +24,42 @@ If you discover a security vulnerability within Lumen, please send an e-mail to 
 ## License
 
 The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+### Run App Local
+```shell
+cd app-lumen
+php -S localhost:9000 -t public  # run http://localhost:9000
+```
+
+### Docker and Docker Compose
+
+```shell
+docker-compose build
+docker-compose up # run http://localhost:9000
+
+# Run tests with Pest
+docker-compose run --rm app ./vendor/bin/pest
+
+```
+
+### Routes API
+```shell
+GET http://localhost:9000
+GET http://localhost:9000/api/
+GET http://localhost:9000/search/local/ceps
+GET http://localhost:9000/api/search/local/ceps
+```
+
+### Todos
+
+* [X] Search for zip codes in the ViaCEP API
+* [X] Docker and Docker Compose
+* [ ] Users
+* [ ] User Authentication
+* [ ] JWT for API
+* [ ] Layer Services
+* [ ] SwaggerUI
+* [ ] Concurrency and Parallelism with Jobs in Background
+* [ ] Refactor all code
+
+https://gilcierweb.com.br

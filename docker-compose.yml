@@ -1,0 +1,24 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 9000:9000
+    depends_on:
+      - db
+    volumes:
+      - .:/app 
+    command: php -S 0.0.0.0:9000 public/index.php
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: lumen
+      MYSQL_USER: lumen
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+    volumes:
+      - ./db_data:/var/lib/mysql
+
+volumes:
+  db_data:

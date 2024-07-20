@@ -1,0 +1,66 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Lumen Swagger ViaCEP API",
+        "license": {
+            "name": "MIT"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://0.0.0.0:9000/",
+            "description": "API server"
+        }
+    ],
+    "paths": {
+        "/api/search/local/{zipCodes}": {
+            "get": {
+                "tags": [
+                    "Master Data"
+                ],
+                "operationId": "/search/local/{zipCodes}",
+                "parameters": [
+                    {
+                        "name": "zipCodes",
+                        "in": "path",
+                        "description": "CEP of viaCEP to return",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns list of zip codes in the viaCEP",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "example": {
+                                            "cep": "60050-070",
+                                            "logradouro": "Rua Barão de Aratanha",
+                                            "complemento": "até 338/339",
+                                            "unidade": "",
+                                            "bairro": "Centro",
+                                            "localidade": "Fortaleza",
+                                            "uf": "CE",
+                                            "ibge": "2304400",
+                                            "gia": "",
+                                            "ddd": "85",
+                                            "siafi": "1389"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

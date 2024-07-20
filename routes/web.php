@@ -16,6 +16,7 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+$router->get('/search/local/{zip}', 'SearchController@index');
 
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('/', 'HomeController@index');

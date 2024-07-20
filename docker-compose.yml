@@ -9,7 +9,7 @@ services:
       - db
     volumes:
       - .:/app 
-    command: php -S 0.0.0.0:9000 public/index.php
+    command: php -S 0.0.0.0:9000 -t public
   db:
     image: mysql:latest
     environment:

@@ -27,6 +27,9 @@ $app->withFacades();
 
 // $app->withEloquent();
 
+// Swagger 2.0-3.0 for Lumen
+$app->configure('swagger-lume');
+
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -94,6 +97,8 @@ $app->configure('app');
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+
+$app->register(\SwaggerLume\ServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

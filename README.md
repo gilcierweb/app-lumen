@@ -48,6 +48,7 @@ GET http://localhost:9000
 GET http://localhost:9000/api/
 GET http://localhost:9000/search/local/ceps
 GET http://localhost:9000/api/search/local/ceps
+GET http://localhost:9000/api/documentation
 ```
 
 ### Todos
@@ -58,7 +59,7 @@ GET http://localhost:9000/api/search/local/ceps
 * [ ] User Authentication
 * [ ] JWT for API
 * [ ] Layer Services
-* [ ] SwaggerUI
+* [X] SwaggerUI
 * [ ] Concurrency and Parallelism with Jobs in Background
 * [ ] Refactor all code
 

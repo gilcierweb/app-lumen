@@ -14,12 +14,17 @@ class Controller extends BaseController
  *     @OA\Info(
  *         version="1.0.0",
  *         title="Lumen Swagger ViaCEP API",
- *         @OA\License(name="MIT")
+ *         @OA\License(name="MIT"),
+ *         @OA\Contact(
+ *              email="gilcierweb@gmail.com",
+ *              name="GilcierWeb",
+ *         )
  *     ),
  *     @OA\Server(
  *         description="API server",
  *         url="http://0.0.0.0:9000/",
  *     ),
+
  * )
  */
 }

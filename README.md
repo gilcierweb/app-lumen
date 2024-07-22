@@ -49,6 +49,7 @@ GET http://localhost:9000/api/
 GET http://localhost:9000/search/local/ceps
 GET http://localhost:9000/api/search/local/ceps
 GET http://localhost:9000/api/documentation
+GET http://localhost:9000/docs
 ```
 
 ### Todos
